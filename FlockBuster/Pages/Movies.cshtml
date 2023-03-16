@@ -1,0 +1,30 @@
+﻿@page
+@model FlockBuster.Pages.MoviesModel
+@{
+}
+<button type="submit" id="add">add movie to database</button>
+<button type="submit" id="add">add movie to website</button>
+<button onclick="showContent()">show hidden content</button>
+
+  <div class="row">
+       <template>
+          <div class="card, bg-transparent, text-light" style="width: 11.55rem; text-align: center;">
+             <a href="/Movies">
+                 <img src="/images/movie1.jfif" />
+             </a>
+             <div class="card-header">
+                  <h4 class="card-text">Glass</h4>
+             </div>
+          </div>
+       </template>
+  </div>
+
+<script>
+    function showContent() {
+        var temp = document.getElementsByTagName("template")[0];
+        var clon = temp.content.cloneNode(true);
+        document.body.appendChild(clon);
+    }
+    
+</script>
+<script src="~/js/index.js" defer></script>

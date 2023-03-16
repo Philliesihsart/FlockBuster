@@ -1,0 +1,37 @@
+﻿@page
+@model FlockBuster.Pages.LoginModel
+@{
+}
+<center style="margin-top: 50px;">
+
+<div class="container">
+    <h2 style="color:white;">Log ind</h2>
+    <div style="margin: auto">
+        <form method="post">
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <div class="form-group row">
+                <div class="col-5">
+                    <input type="text" asp-for="Email" placeholder="E-mail" style="width: 250px; height: 35px; margin-left: 513px;" />
+                </div>
+                <span class="text-danger" asp-validation-for="Email"></span>
+            </div>
+            <div class="form-group row" style="margin-top: 4px;">
+                <div class="col-5">
+                        <input type="password" asp-for="Password" placeholder="Adgangskode" style="width: 250px; height: 35px; margin-left: 513px" />
+                </div>
+                <span class="text-danger" asp-validation-for="Password"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-2" style="margin-top: 15px;">
+                        <button type="submit" style=" margin-left: 486px; width: 300px; background-color: rgb(255 225 63); color: black; font-weight: 600; margin-top: 5px;">Log ind</button>
+                </div>
+            </div>
+            <div style="margin-top: 50px; color: white;">
+                <h4>Har du ikke en profil hos Flockbuster?</h4>
+            </div>
+                    <a href="/NewUser" class="btn btn-dark" style="color: white; align-content: center; padding: 10px 35px; width: 250px; font-weight: 500;">Opret gratis profil</a>
+
+        </form>
+    </div>
+</div>
+</center>

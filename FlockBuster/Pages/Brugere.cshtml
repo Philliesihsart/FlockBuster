@@ -1,0 +1,35 @@
+﻿@page
+@model FlockBuster.Pages.Index1Model
+@{
+}
+<link rel="stylesheet" href="~/css/StyleSheet1.css" />
+<br />
+<h2>Liste af Brugere</h2>
+<a class="btn btn-primary btn-sm" href="/NewUser">Ny bruger</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Navn</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.brugerliste)
+        {
+<form method="post">
+            <tr>
+                <td>@item.UserID</td>
+                <td>@item.Email</td>
+                <td>@item.Navn</td>
+                <td>
+                   <a asp-route-userid="@item.UserID" asp-page="/EditUsers" class="btn btn-primary btn-sm">Rediger</a>
+                   <input asp-for="UserID" hidden value="@item.UserID" />
+                    <button type="submit" asp-page-handler="Delete" class=" btn btn-danger btn-sm">Slet</button>
+
+                </td>
+            </tr>
+</form>
+        }
+    </tbody>
+</table>

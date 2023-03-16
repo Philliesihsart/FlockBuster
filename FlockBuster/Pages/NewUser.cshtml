@@ -1,0 +1,50 @@
+﻿@page
+@model FlockBuster.Pages.NewUserModel
+@{
+}
+<link rel="stylesheet" href="/css/StyleSheet1.css" />
+<br />
+<center style="margin-top: 100px;">
+<h2 class="text-light" style="position: center;">Opret Bruger</h2>
+@if (Model.errormessage.Length > 0) {
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errormessage</strong>
+        <button type="button" class="btn-close" data-bs-dissmiss="alert" aria-label="Close"></button>
+    </div>
+}
+<form method="post">
+    <div class="row mb-3">
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="navn" value="@Model.Navn" placeholder="Navn" style="width: 300px; margin-left: 498px;" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-6">
+                <input type="text" class="form-control" name="email" value="@Model.Email" placeholder="E-mail" style="width: 300px; margin-left: 498px;" />
+        </div>
+    </div>
+    <div class="row mb-3" >
+        <div class="col-sm-6">
+                <input type="password" class="form-control" name="Adgangskode" value="@Model.Adgangskode" placeholder="Adgangskode" style="width: 300px; margin-left: 498px;" />
+        </div>
+    </div>
+    @if (Model.successmessage.Length > 0) {
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>@Model.successmessage</strong>
+                    <button type="button" class="btn-close" data-bs-dissmiss="alert" aria-label="Luk"></button>
+                </div>
+            </div>
+        </div>
+    }
+        <div class="row mb-3" style=" margin-left: 533px;">
+            <button type="submit" class="btn btn-secondary" style="width: 110px; margin-right:20px; background-color: green;">Opret</button>
+            <a class="btn btn-secondary" href="/" role="button" style="width: 110px; background-color: red;">Afbryd</a>
+    </div>
+
+
+</form>
+
+
+</center>

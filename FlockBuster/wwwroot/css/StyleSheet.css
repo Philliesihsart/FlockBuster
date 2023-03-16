@@ -1,0 +1,53 @@
+﻿html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 20px 20px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+label {
+    font-weight: 500;
+    position: absolute;
+    color: white;
+}
+
+input {
+    text-align: left;
+    padding: 0px 10px;
+    border-radius: 5px 5px;
+}
+
+button:hover {
+    background-color: #486856;
+    color: white;
+    border-radius: 10px 10px;
+    transition-duration: 0,4s;
+}
+nav {
+    padding 0px 10px;
+    margin-top 50px;
+}

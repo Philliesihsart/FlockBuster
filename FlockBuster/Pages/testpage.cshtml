@@ -1,0 +1,39 @@
+﻿@page
+@model FlockBuster.Pages.testpageModel
+@{
+}
+<link rel="stylesheet" href="~/css/StyleSheet1.css" />
+<br />
+<h2>Liste af Film</h2>
+<a class="btn btn-primary btn-sm" href="/AddMovies">Ny film</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>FilmID</th>
+            <th>Navn</th>
+            <th>UdgivningsÅr</th>
+            <th>AlderBegrænsning</th>
+            <th>Beskrivelse</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.movielist)
+        {
+            <form method="post">
+            <tr>
+                <td>@item.filmID</td>
+                <td>@item.Navn</td>
+                <td>@item.ReleaseYear</td>
+                <td>@item.Alderbeg</td>
+                <td>@item.beskrivelse</td>
+                <td>
+                    <a asp-route-filmID="@item.filmID" asp-page="/EditMovies" class="btn btn-primary btn-sm">Rediger</a>
+                    <input asp-for="FilmID" hidden value="@item.filmID" />
+                    <button type="submit" asp-page-handler="Delete" class=" btn btn-danger btn-sm">Slet</button>
+
+                </td>
+            </tr>
+            </form>
+        }
+    </tbody>
+</table>

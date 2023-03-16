@@ -1,0 +1,24 @@
+﻿@page "{userID}"
+@model FlockBuster.Pages.BrugerInfoModel
+@{
+}
+<link rel="stylesheet" href="~/css/StyleSheet1.css" />
+<br />
+<h2 style="color: white;">Dine infomationer</h2>
+<table class="table" style="color: white;">
+    <thead>
+        <tr>
+            <th>Navn</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+     <tbody>
+        <form method="post">
+            <tr>
+                <td>@Model.Navn</td>
+                <td>@Model.Email</td>
+            </td>
+            </tr>
+        </form>
+    </tbody>
+</table>

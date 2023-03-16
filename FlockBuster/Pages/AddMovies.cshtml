@@ -1,0 +1,76 @@
+﻿@page
+@model FlockBuster.Pages.AddMoviesModel
+@{
+}
+<center>
+
+<link rel="stylesheet" href="/css/StyleSheet1.css" />
+<br />
+<h2 class="text-light">Opret ny film</h2>
+@if (Model.errormessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errormessage</strong>
+        <button type="button" class="btn-close" data-bs-dissmiss="alert" aria-label="Close"></button>
+    </div>
+}
+<form method="post">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">AntalFilm</label>
+        <div class="col-sm-6">
+            <input type="number" class="form-control" placeholder="Fx. 20" asp-for="antalFilm" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Navn på film</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" placeholder="Fx. Split" asp-for="navnFilm" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Årstal</label>
+        <div class="col-sm-6">
+            <input type="number" class="form-control" placeholder="Fx. 2000" asp-for="årstalfilm" />
+        </div>
+    </div>
+        <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Alder Begrænsning</label>
+        <div class="col-sm-6">
+            <input type="number" class="form-control" placeholder="Fx. 16" asp-for="AlderBeg" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Film Beskrivelse</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" placeholder="Fx. Ingen beskrivelse" asp-for="desc" />
+        </div>
+    </div>
+        <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Længde af film</label>
+        <div class="col-sm-6">
+            <input type="time" required class="form-control" placeholder="Fx. 02:45:00" asp-for="time" />
+        </div>
+    </div>
+    @if (Model.successmessage.Length > 0)
+    {
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>@Model.successmessage</strong>
+                    <button type="button" class="btn-close" data-bs-dissmiss="alert" aria-label="Luk"></button>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" href="/testpage" class="btn btn-primary">Opret</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/Brugere" role="button">Afbryd</a>
+        </div>
+    </div>
+
+
+</form>
+</center>

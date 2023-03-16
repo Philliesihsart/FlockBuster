@@ -1,0 +1,53 @@
+﻿@page "{UserID:int}"
+@model FlockBuster.Pages.EditUsersModel
+@{
+}
+<link rel="stylesheet" href="~/css/StyleSheet1.css" />
+@if (Model.errormessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errormessage</strong>
+        <button type="button" class="btn-close" data-bs-dissmiss="alert" aria-label="Close"></button>
+    </div>
+}
+<form method="post">
+    <h2>Rediger Bruger</h2>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Navn</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" value="@Model.Navn" asp-for="Navn"/>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" value="@Model.Email" asp-for="Email" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Adgangskode</label>
+        <div class="col-sm-6">
+            <input type="password" class="form-control" asp-for="Adgangskode" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Rediger</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/" role="button">Afbryd</a>
+        </div>
+    </div>
+    @if (Model.successmessage.Length > 0)
+    {
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>@Model.successmessage</strong>
+                    <button type="button" class="btn-close" data-bs-dissmiss="alert" aria-label="Luk"></button>
+                </div>
+            </div>
+        </div>
+    }
+
+</form>
