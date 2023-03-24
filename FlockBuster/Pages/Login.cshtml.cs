@@ -20,38 +20,32 @@ namespace FlockBuster.Pages
         public string Email { get; set; }
         [BindProperty]
         public string Password { get; set; }
+        public bool Login { get; set; } = true;
 
-
-        public void OnGet()
-        {
-
-        }
 
         public IActionResult OnPost()
         {
             Users founduser = new Users();
+            founduser = _connection.LoginForUsers(Email, Password);
             if (string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password))
             {
                 errormessage = "Alle felter skal være udfyldt";
-                return RedirectToPage("/Login");
+                return Page();
             }
             if (founduser == null)
             {
-                return RedirectToPage("/Login");
+                return Page();
             }
-            else
+            else if (founduser.Email == Email && founduser.Password == Password)
             {
-                founduser = _connection.LoginForUsers(Email, Password);
+               
                 HttpContext.Session.SetSessionString(Email, "Email");
                 return RedirectToPage("/Index");
-                
-                                
-
             }
+            return Page();
         }
-
     }
-
+}
     //public class Credential
     //{
     //    [Required]
@@ -60,4 +54,4 @@ namespace FlockBuster.Pages
     //    [DataType(DataType.Password)]
     //    public string Adgangskode { get; set; }
     //}
-}
+

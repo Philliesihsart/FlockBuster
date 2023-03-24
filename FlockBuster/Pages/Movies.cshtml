@@ -2,29 +2,92 @@
 @model FlockBuster.Pages.MoviesModel
 @{
 }
-<button type="submit" id="add">add movie to database</button>
-<button type="submit" id="add">add movie to website</button>
-<button onclick="showContent()">show hidden content</button>
-
-  <div class="row">
-       <template>
-          <div class="card, bg-transparent, text-light" style="width: 11.55rem; text-align: center;">
-             <a href="/Movies">
-                 <img src="/images/movie1.jfif" />
-             </a>
-             <div class="card-header">
-                  <h4 class="card-text">Glass</h4>
-             </div>
-          </div>
-       </template>
-  </div>
-
-<script>
-    function showContent() {
-        var temp = document.getElementsByTagName("template")[0];
-        var clon = temp.content.cloneNode(true);
-        document.body.appendChild(clon);
-    }
-    
-</script>
-<script src="~/js/index.js" defer></script>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Netflix-style Image Grid</title>
+	<style>
+		.container {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			grid-gap: 10px;
+			margin: 20px;
+		}
+		.image {
+			position: relative;
+			width: 100%;
+			height: 0;
+			padding-bottom: 100%;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			cursor: pointer;
+		}
+		.overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.5);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			opacity: 0;
+			transition: opacity 0.3s ease-in-out;
+			cursor: pointer;
+		}
+		.overlay:hover {
+			opacity: 1;
+		}
+		.overlay-text {
+			color: #fff;
+			font-size: 1.2em;
+			font-weight: bold;
+			text-align: center;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="image" style="background-image: url('https://picsum.photos/id/1000/600/400')">
+			<div class="overlay">
+				<div class="overlay-text">Image 1</div>
+			</div>
+		</div>
+		<div class="image" style="background-image: url('https://picsum.photos/id/1001/600/400')">
+			<div class="overlay">
+				<div class="overlay-text">Image 2</div>
+			</div>
+		</div>
+		<div class="image" style="background-image: url('https://picsum.photos/id/1002/600/400')">
+			<div class="overlay">
+				<div class="overlay-text">Image 3</div>
+			</div>
+		</div>
+		<div class="image" style="background-image: url('https://picsum.photos/id/1003/600/400')">
+			<div class="overlay">
+				<div class="overlay-text">Image 4</div>
+			</div>
+		</div>
+		<div class="image" style="background-image: url('https://picsum.photos/id/1004/600/400')">
+			<div class="overlay">
+				<div class="overlay-text">Image 5</div>
+			</div>
+		</div>
+		<div class="image" style="background-image: url('https://picsum.photos/id/1005/600/400')">
+			<div class="overlay">
+				<div class="overlay-text">Image 6</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		// Add click event listener to each image
+		document.querySelectorAll('.image').forEach(image => {
+			image.addEventListener('click', () => {
+				// Get the URL of the larger version of the image
+				const url =
+				</Script>
+				</body>

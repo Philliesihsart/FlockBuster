@@ -5,6 +5,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Reflection.PortableExecutable;
 using System.Xml;
+using FlockBuster.SessionHelper;
+using System.Diagnostics;
 
 namespace FlockBuster.Data
 {
@@ -92,6 +94,7 @@ namespace FlockBuster.Data
             {
                 _sqlConnection.Open();
                 _command.ExecuteNonQuery();
+                
             }
             catch (Exception)
             {
@@ -208,6 +211,10 @@ namespace FlockBuster.Data
                     {
                         Users userinfo = new Users(reader.GetInt32("UserID"), reader.GetString("Navn"), reader.GetString("Mail"), reader.GetString("Adgangskode"));
                         return userinfo;
+                    }
+                    if (email != reader.GetString("Mail") || adgangskode != reader.GetString("Adganskode"))
+                    {
+                        return new();
                     }
                 }
             }

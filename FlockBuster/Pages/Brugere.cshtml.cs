@@ -1,7 +1,9 @@
 using FlockBuster.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Configuration.UserSecrets;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
 
 namespace FlockBuster.Pages
@@ -17,7 +19,6 @@ namespace FlockBuster.Pages
         
 
         public List<Users> brugerliste = new List<Users>();
-
         public int UserID { get; set; }
         public void OnGet()
         {
@@ -33,17 +34,9 @@ namespace FlockBuster.Pages
         }
         public IActionResult OnPostDelete()
         {
-            try
-            {
-                _connection.Deleteuser(UserID);
-                return RedirectToPage("/Brugere");
-                
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            
+            _connection.Deleteuser(UserID);
+            return RedirectToPage("/Brugere");
             
         }
 

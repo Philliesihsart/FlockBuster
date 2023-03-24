@@ -17,7 +17,7 @@ body {
     margin-bottom: 60px;
 }
 
-button {
+.button {
     background-color: #4CAF50;
     border: none;
     color: white;

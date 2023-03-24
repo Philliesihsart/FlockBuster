@@ -24,13 +24,26 @@
                     <a class="navbar-brand" href="/Kundeservice">Kundeservice</a>
                 </li>
             </ul>
+            @if (string.IsNullOrEmpty(Context.Session.GetString("Email"))) {
+
             <a href="/NewUser" class="btn btn-primary nav-register Button Button__round Button__blue tw-my-auto tw-ml-4 tw-py-[9px] tw-min-w-[116px] tw-text-base tw-leading-none">Opret profil</a>
+            }
+            else {
+
+            }
         </div>
         @if (string.IsNullOrEmpty(Context.Session.GetString("Email"))) {
                 <a id="a-item" class="navbar-brand text-light" href="/Login">Log ind</a>
         }
         else {
-            <a id="logudBtn" class="navbar-brand text-light" href="/Logud">Log ud</a>
+            <div class="dropdown" style="margin-right: 70px;">
+                <button onclick="myFunction()" class="dropbtn">Indstillinger</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="/BrugerInfo{}">Bruger indstillinger</a>
+                    <a href="/AdminPanel">Adminpanel</a>
+                    <a href="Logud">Log Ud</a>
+                </div>
+            </div>
         }
         
 
@@ -41,9 +54,29 @@
         </main> 
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap/dist/ js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
 
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

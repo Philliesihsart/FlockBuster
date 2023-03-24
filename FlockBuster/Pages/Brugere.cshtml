@@ -4,9 +4,9 @@
 }
 <link rel="stylesheet" href="~/css/StyleSheet1.css" />
 <br />
-<h2>Liste af Brugere</h2>
+<h2 class="text-light">Liste af Brugere</h2>
 <a class="btn btn-primary btn-sm" href="/NewUser">Ny bruger</a>
-<table class="table">
+<table class="table text-light" style="text-align: center;">
     <thead>
         <tr>
             <th>ID</th>
@@ -17,7 +17,7 @@
     <tbody>
         @foreach(var item in Model.brugerliste)
         {
-<form method="post">
+            <form method="post">
             <tr>
                 <td>@item.UserID</td>
                 <td>@item.Email</td>
@@ -25,11 +25,11 @@
                 <td>
                    <a asp-route-userid="@item.UserID" asp-page="/EditUsers" class="btn btn-primary btn-sm">Rediger</a>
                    <input asp-for="UserID" hidden value="@item.UserID" />
-                    <button type="submit" asp-page-handler="Delete" class=" btn btn-danger btn-sm">Slet</button>
+                    <button type="submit" asp-page-handler="Delete" class="btn btn-danger btn-sm">Slet</button>
 
                 </td>
             </tr>
-</form>
+            </form>
         }
     </tbody>
 </table>
